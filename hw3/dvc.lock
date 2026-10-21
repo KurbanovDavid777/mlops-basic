@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py data/raw.csv data/processed.csv
+    deps:
+    - path: data/raw.csv
+      hash: md5
+      md5: 1a3651ad68bb99bc71cc0a8601715516
+      size: 204
+    - path: src/prepare.py
+      hash: md5
+      md5: 046f5151c772c4dd9382d5ec32afd505
+      size: 839
+    outs:
+    - path: data/processed.csv
+      hash: md5
+      md5: 2832d831242fdd556545a8fbc47baed5
+      size: 318
+  stats:
+    cmd: python src/stats.py data/processed.csv metrics.json
+    deps:
+    - path: data/processed.csv
+      hash: md5
+      md5: 2832d831242fdd556545a8fbc47baed5
+      size: 318
+    - path: src/stats.py
+      hash: md5
+      md5: a4758a24e8adac88e0a14efb318fd64c
+      size: 633
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 6c919416a50669c510dd60693ed4583a
+      size: 102

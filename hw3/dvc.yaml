@@ -1,0 +1,16 @@
+stages:
+  prepare:
+    cmd: python src/prepare.py data/raw.csv data/processed.csv
+    deps:
+    - data/raw.csv
+    - src/prepare.py
+    outs:
+    - data/processed.csv
+  stats:
+    cmd: python src/stats.py data/processed.csv metrics.json
+    deps:
+    - data/processed.csv
+    - src/stats.py
+    metrics:
+    - metrics.json:
+        cache: false

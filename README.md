@@ -6,6 +6,7 @@ Homework assignments for the MLOps course. Each assignment lives in its own fold
 | ------ | ----- | ----- |
 | [hw1](hw1/) | Project setup and code quality tooling | uv, Ruff, ty, pytest |
 | [hw2](hw2/) | Branches and pull request | git, GitHub |
+| [hw3](hw3/) | Data versioning and pipelines | DVC, uv |
 
 ## Working with an assignment
 
