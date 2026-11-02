@@ -1,0 +1,40 @@
+[project]
+name = "mlops-hw4"
+version = "0.1.0"
+description = "MLOps HW4: tests for a PyTorch pipeline"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torch>=2.14.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+    "ty>=0.0.87",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--strict-markers"
+markers = [
+    "unit: tests of a single component in isolation",
+    "integration: tests of several components working together",
+    "e2e: end-to-end tests of the whole pipeline",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ty.environment]
+python-version = "3.13"
+root = ["./src"]
+
+[tool.ty.rules]
+invalid-mutable-override = "ignore"
